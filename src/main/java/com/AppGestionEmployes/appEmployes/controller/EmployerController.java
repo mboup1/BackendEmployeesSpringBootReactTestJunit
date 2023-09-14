@@ -16,6 +16,7 @@ public class EmployerController {
     private EmployerService employerService;
 
 
+    //test
     @RequestMapping(method = RequestMethod.GET, value = "/employers")
     public List<Employer> getEmployers(){return employerService.getEmployers();}
 
