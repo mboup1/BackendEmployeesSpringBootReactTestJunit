@@ -26,7 +26,14 @@ public class EmployerService {
 
     public void deleteEmployer(long id) { employerRepository.deleteById(id);  }
 
-    public void addEmployer(Employer employer) {employerRepository.save(employer);}
+    public Employer addEmployer(Employer employer) {
+        employerRepository.save(employer);
+        return employer;
+    }
 
-    public void updateEmployer(Employer employer, long id) { employerRepository.save(employer); }
+    public Employer updateEmployer(Employer employer, long id) {
+        employerRepository.save(employer);
+        return employer;
+
+    }
 }
