@@ -1,6 +1,7 @@
 package com.AppGestionEmployes.appEmployes.controller;
 
 import com.AppGestionEmployes.appEmployes.model.Employer;
+import com.AppGestionEmployes.appEmployes.repository.EmployerRepository;
 import com.AppGestionEmployes.appEmployes.service.EmployerService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -19,9 +20,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployerControllerTest {
     @Autowired
     private MockMvc mockMvc;
+    @Autowired
+    EmployerRepository employerRepository;
 
     @MockBean
     private EmployerService employerService;
+
     @Test
     void getEmployer() {
         // arrange
@@ -30,6 +34,7 @@ class EmployerControllerTest {
         employer.setId(userId);
         employer.setFirstName("John Doe");
         Mockito.when(employerService.getEmployer(userId)).thenReturn(employer);
+        System.out.println("employer : " + employerRepository.findById(userId));
 
         // act
         Employer result = employerService.getEmployer(userId);
